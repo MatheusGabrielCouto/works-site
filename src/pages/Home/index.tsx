@@ -7,8 +7,8 @@ import { Job } from 'utils/JobInterface'
 import * as S from './styles'
 
 export default function Home() {
-  const [jobs, setJobs] = useState<[Job]>()
-  const [jobsFiltered, setJobsFiltered] = useState<[Job]>()
+  const [jobs, setJobs] = useState<Job[]>()
+  const [jobsFiltered, setJobsFiltered] = useState<Job[]>()
   const [companyName, setCompanyName] = useState('')
   const [filterDays, setFilterDays] = useState<boolean>(false)
 
@@ -37,9 +37,9 @@ export default function Home() {
       })
   }
 
-  const filterDate = (jobs: [Job]) => {
+  const filterDate = (jobs: Job[]) => {
     if (filterDays) {
-      const fil: [Job] = jobs?.filter(
+      const fil: Job[] = jobs?.filter(
         (job: Job) => Number(job.postedDate.replace(/\D/g, '')) <= 7
       )
 
@@ -48,7 +48,7 @@ export default function Home() {
   }
 
   const applyFilters = async () => {
-    const f: [Job] = jobs?.filter((job: Job) =>
+    const f: Job[] | any = jobs?.filter((job: Job) =>
       job.companyName.includes(companyName)
     )
     setJobsFiltered(f)
