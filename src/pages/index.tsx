@@ -1,6 +1,6 @@
 import { ThemeProvider } from 'styled-components'
 import theme from 'styles/theme'
-import Home from './Home'
+import Home from '../templates/Home'
 
 export default function App() {
   return (
