@@ -1,5 +1,11 @@
-import Main from 'components/Main'
+import { ThemeProvider } from 'styled-components'
+import theme from 'styles/theme'
+import Home from './Home'
 
-export default function Home() {
-  return <Main />
+export default function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <Home />
+    </ThemeProvider>
+  )
 }
